@@ -1,0 +1,24 @@
+{
+  "name": "@trysnetron/bustimer",
+  "version": "1.0.0",
+  "description": "Customizeable bus stop timer",
+  "main": "src/index.html",
+  "scripts": {
+    "dev": "parcel src/index.html --open",
+    "build": "parcel build src/index.html --public-url ./ --no-source-maps",
+    "test": "echo yello",
+    "lint": "eslint src/js/",
+    "style": "prettier --write src/js/*"
+  },
+  "keywords": [
+    "bus",
+    "timer"
+  ],
+  "author": "Trym Sneltvedt",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "1.17.1"
+  }
+}
