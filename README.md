@@ -1,6 +1,8 @@
 # bustimer
 Minimal bus time app for the web.
 
+![preview](/media/preview.png)
+
 ## Getting started
 How to get this project up and running.
 
