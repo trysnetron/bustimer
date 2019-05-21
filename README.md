@@ -1,4 +1,4 @@
-# bustimer
+# bustimer [![version](https://img.shields.io/github/release/trysnetron/bustimer.svg?style=flat-square)](https://github.com/trysnetron/bustimer/releases)
 Minimal bus time app for the web.
 
 ![preview](/media/preview.jpg)
