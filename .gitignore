@@ -18,3 +18,4 @@ jspm_packages/
 # Parcel
 dist/
 .cache/
+*.zip

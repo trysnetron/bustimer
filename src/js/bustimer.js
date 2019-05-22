@@ -17,12 +17,11 @@ function prettyTime(simpleTime) {
 
 function timeToNext(hour, minute, second, table) {
   const from = simpleTime(hour, minute, second);
-  const time = table.reduce((best, curr) => {
-    const diff = simpleTime(curr[0], curr[1]) - from;
-    if (diff >= 0 && diff < best) return diff;
-    return best;
-  }, 24 * 60 * 60);
-  return prettyTime(time);
+  return table
+    .map(t => simpleTime(t[0], t[1]) - from)
+    .filter(t => t >= 0)
+    .sort((a, b) => a > b)
+    .map(t => prettyTime(t));
 }
 
 export default function createBustimer(root, stops) {
@@ -42,10 +41,15 @@ export default function createBustimer(root, stops) {
     timeElem.classList.add("timeleft");
     mainElem.appendChild(timeElem);
 
+    const nextElem = document.createElement("div");
+    mainElem.appendChild(nextElem);
+
     rootElem.appendChild(mainElem);
 
     return function update(hour, minute, second) {
-      timeElem.innerText = timeToNext(hour, minute, second, stop.times);
+      const next = timeToNext(hour, minute, second, stop.times);
+      timeElem.innerText = next[0];
+      nextElem.innerText = `Next: ${next[1]}`;
     };
   });
 
