@@ -24,7 +24,7 @@ import stops from "./stops";
     rootElem.appendChild(mainElem);
 
     return function update(hour, minute, second) {
-      const next = timeToNext(hour, minute, second, stop.times);
+      const next = timeToNext({ h: hour, m: minute, s: second }, stop.times);
       timeElem.innerText = next[0];
       nextElem.innerText = `Next: ${next[1]}`;
     };

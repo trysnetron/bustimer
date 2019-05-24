@@ -7,7 +7,7 @@ const testTimes = [
 ]
 
 test('returns time to next bus departure', () => {
-  const res = timeToNext(12, 30, 0, testTimes);
+  const res = timeToNext({ h: 12, m: 30, s: 0 }, testTimes);
   expect(res[0]).toBe('00:30:00');
   expect(res[1]).toBe('05:30:00');
   expect(res[2]).toBe('23:30:00');
