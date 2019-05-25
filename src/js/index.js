@@ -23,17 +23,25 @@ import stops from "./stops";
 
     rootElem.appendChild(mainElem);
 
-    return function update(hour, minute, second) {
-      const next = timeToNext({ h: hour, m: minute, s: second }, stop.times);
-      timeElem.innerText = next[0];
-      nextElem.innerText = `Next: ${next[1]}`;
+    return function update(hour, minute, second, weekday) {
+      const next = timeToNext(
+        { h: hour, m: minute, s: second, wkday: weekday },
+        stop.table
+      );
+      if (next.length > 0) {
+        timeElem.innerText = next[0];
+        nextElem.innerText = `Next: ${next[1]}`;
+      } else {
+        timeElem.innerText = "no busses";
+        nextElem.innerText = "today or tomorrow";
+      }
     };
   });
 
   function update() {
     const now = new Date();
     updateFuncs.forEach(f =>
-      f(now.getHours(), now.getMinutes(), now.getSeconds())
+      f(now.getHours(), now.getMinutes(), now.getSeconds(), now.getDay())
     );
   }
 
