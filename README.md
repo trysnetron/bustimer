@@ -29,6 +29,13 @@ npm run dev
 
 This will open a browser tab with the web app, and changes done to the source should be applied when you save.
 
+## Tests
+
+To run the jest test suite, run
+```bash
+npm test
+```
+
 ## Deployment
 
 Want to add your own bus times to the app and host it yourself (for example with [Github Pages](https://pages.github.com/))?
